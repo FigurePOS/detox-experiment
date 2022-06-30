@@ -26,7 +26,7 @@ class example extends Component {
     return (
       <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
         <Counter />
-        <Text style={{fontSize: 25, marginBottom: 30}}>
+        <Text testID='welcome-text' style={{fontSize: 25, marginBottom: 30}}>
           Welcome
         </Text>
         <TouchableOpacity testID='hello_button' onPress={this.onButtonPress.bind(this, 'Hello')}>
