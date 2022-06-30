@@ -13,6 +13,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Counter } from './src/counter'
+import { TextEditor } from './src/textEditor';
 
 class example extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class example extends Component {
     return (
       <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
         <Counter />
+        <TextEditor />
         <Text testID='welcome-text' style={{fontSize: 25, marginBottom: 30}}>
           Welcome
         </Text>
