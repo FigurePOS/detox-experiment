@@ -12,6 +12,7 @@ import {
   View,
   TouchableOpacity
 } from 'react-native';
+import { Counter } from './src/counter'
 
 class example extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class example extends Component {
     if (this.state.greeting) return this.renderAfterButton();
     return (
       <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
+        <Counter />
         <Text style={{fontSize: 25, marginBottom: 30}}>
           Welcome
         </Text>
