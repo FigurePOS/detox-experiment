@@ -4,6 +4,7 @@ export const TestIDS = {
   CounterPlus: "counter-plus",
   CounterMinus: "counter-minus",
   CounterReset: "counter-rest",
+  CounterText: "counter-text",
 
   TextEditor: "text-editor",
   TextEditorInput: "text-editor-input",

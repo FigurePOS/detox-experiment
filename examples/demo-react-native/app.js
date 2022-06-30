@@ -29,7 +29,7 @@ class example extends Component {
         <Counter />
         <TextEditor />
         <Text testID='welcome-text' style={{fontSize: 25, marginBottom: 30}}>
-          Welcome
+          Welcome 2
         </Text>
         <TouchableOpacity testID='hello_button' onPress={this.onButtonPress.bind(this, 'Hello')}>
           <Text style={{color: 'blue', marginBottom: 20}}>Say Hello</Text>

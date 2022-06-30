@@ -19,7 +19,7 @@ export const Counter = (props) => {
     }
     return (
       <View style={styles.container}>
-          <Text>Counter</Text>
+          <Text testID={TestIDS.CounterText}>Counter</Text>
           <Text style={countStyle} testID={TestIDS.CounterCount}>{count}</Text>
           <View style={styles.buttons}>
               <Button title={"-"} onPress={() => setCount((prev) => prev - 1)} testID={TestIDS.CounterMinus}/>
