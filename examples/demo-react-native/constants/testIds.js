@@ -10,4 +10,7 @@ export const TestIDS = {
   TextEditorInput: "text-editor-input",
   TextEditorSubmit: "text-editor-submit",
   TextEditorToggle: "text-editor-submit",
+
+  PageButton: "page-button",
+  PageHeader: "page-header"
 }

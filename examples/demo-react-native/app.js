@@ -4,59 +4,55 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity
-} from 'react-native';
-import { Counter } from './src/counter'
-import { TextEditor } from './src/textEditor';
+import React, { useState } from 'react';
+import { AppRegistry, Button, View } from 'react-native';
+import { Page1 } from './src/page1';
+import { Page5 } from './src/page5';
+import { Page4 } from './src/page4';
+import { Page3 } from './src/page3';
+import { Page2 } from './src/page2';
+import { TestIDS } from './constants/testIds';
 
-class example extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      greeting: undefined
-    };
-  }
-  render() {
-    if (this.state.greeting) return this.renderAfterButton();
-    return (
-      <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
-        <Counter />
-        <TextEditor />
-        <Text testID='welcome-text' style={{fontSize: 25, marginBottom: 30}}>
-          Welcome 2
-        </Text>
-        <TouchableOpacity testID='hello_button' onPress={this.onButtonPress.bind(this, 'Hello')}>
-          <Text style={{color: 'blue', marginBottom: 20}}>Say Hello</Text>
-        </TouchableOpacity>
-        <TouchableOpacity testID='world_button' onPress={this.onButtonPress.bind(this, 'World')}>
-          <Text style={{color: 'blue', marginBottom: 20}}>Say World</Text>
-        </TouchableOpacity>
-        <TouchableOpacity testID='goodbye_button' onPress={this.onButtonPress.bind(this, 'Goodbye, World')}>
-          <Text style={{color: 'blue', marginTop: 50, marginBottom: 20}}>Say Goodbye</Text>
-        </TouchableOpacity>
+const example = () => {
+  const [page, setPage] = useState(1)
+  return (
+    <View style={styles.container}>
+      {renderPage(page)}
+      <View style={styles.pageButtons}>
+        <Button title={"1"} onPress={() => setPage(1)} testID={TestIDS.PageButton}/>
+        <Button title={"2"} onPress={() => setPage(2)} testID={TestIDS.PageButton}/>
+        <Button title={"3"} onPress={() => setPage(3)} testID={TestIDS.PageButton}/>
+        <Button title={"4"} onPress={() => setPage(4)} testID={TestIDS.PageButton}/>
+        <Button title={"5"} onPress={() => setPage(5)} testID={TestIDS.PageButton}/>
       </View>
-    );
-  }
-  renderAfterButton() {
-    return (
-      <View style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{fontSize: 25}}>
-          {this.state.greeting}!!!
-        </Text>
-      </View>
-    );
-  }
-  onButtonPress(greeting) {
-    this.setState({
-      greeting: greeting
-    });
-  }
+    </View>
+  )
+}
+
+export const renderPage = (n) => {
+    switch (n) {
+      case 1:
+        return <Page1 />
+      case 2:
+        return <Page2 />
+      case 3:
+        return <Page3 />
+      case 4:
+        return <Page4 />
+      case 5:
+        return <Page5 />
+    }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    alignItems: "center",
+  },
+  pageButtons: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
 }
 
 AppRegistry.registerComponent('example', () => example);
