@@ -63,15 +63,22 @@ describe('Example', () => {
   });
 
   it('symbol plus should add +1 and reset button add initial value', async () => {
-    const el = element(by.id('counter-rest'))
-    await element(by.id('counter-plus')).multiTap(4);
-    await expect(el).toBeVisible();
-    await (el).tap();
+    const el_res = element(by.id(TestIDS.CounterReset))
+    const el_plus = element(by.id(TestIDS.CounterPlus))
+    const el_count = element(by.id(TestIDS.CounterCount))
+
+    await (el_plus).multiTap(4);
+    await expect(el_count).toHaveText('4');
+    await expect(el_res).toBeVisible();
+    await (el_res).tap();
+    await expect (el_count).toHaveText('0');
   });
 
   it('symbol minus should add -2', async () => {
-
-    await element(by.id('counter-minus')).multiTap(2);
+    const el_minus = element(by.id(TestIDS.CounterMinus))
+    const el_count = element(by.id(TestIDS.CounterCount))
+    await (el_minus).multiTap(2);
+    await expect (el_count).toHaveText('-2');
   });
 
 });
