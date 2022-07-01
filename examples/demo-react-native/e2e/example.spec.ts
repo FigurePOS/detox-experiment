@@ -8,9 +8,11 @@ export const TestIDS = {
   TextEditorInput: "text-editor-input",
   TextEditorSubmit: "text-editor-submit",
   TextEditorToggle: "text-editor-submit",
+
+  PageButton: "page-button",
+  PageHeader: "page-header"
 }
 
-// const el = element(by.id(TestIDS.CounterCount))
 
 describe('Example', () => {
   before(async () => {
@@ -46,17 +48,18 @@ describe('Example', () => {
     await expect(element(by.text('Goodbye, World!!!'))).toBeVisible();
   });
 
+//counter
 
-  //Counter"
   it('should show word Counter', async () => {
     const el = element(by.id(TestIDS.CounterText))
-    //await expect(element(by.id('counter-text'))).toBeVisible();
+    await expect(el).toBeVisible();
     await expect(el).toHaveText('Counter');
   });
 
   it('should be value zero', async () => {
-    await element(by.id('counter-count'));
-    //expect
+    const el = element(by.id(TestIDS.CounterCount))
+    await expect(el).toBeVisible();
+    await expect(el).toHaveText('0');
   });
 
   it('symbol plus should add +1 and reset button add initial value', async () => {
@@ -67,6 +70,7 @@ describe('Example', () => {
   });
 
   it('symbol minus should add -2', async () => {
+
     await element(by.id('counter-minus')).multiTap(2);
   });
 
