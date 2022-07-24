@@ -1,46 +1,48 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Text, View, Button, TextInput,Switch } from 'react-native';
+import { Text, View, Button, TextInput, Switch } from 'react-native';
 import { TestIDS } from '../constants/testIds';
 
 export const TextEditor = (props) => {
-  const [text, setText] = useState("")
-  const [textEdit, setTextEdit] = useState("")
-  const [keep, setKeep] = useState(false)
+  const [text, setText] = useState('');
+  const [textEdit, setTextEdit] = useState('');
+  const [keep, setKeep] = useState(false);
 
   const onSubmit = useCallback(() => {
-    setText(textEdit)
-  }, [textEdit, setText])
+    setText(textEdit);
+  }, [textEdit, setText]);
 
   useEffect(() => {
     if (keep) {
-      setText(textEdit)
+      setText(textEdit);
     }
-  }, [keep, textEdit, setText,])
+  }, [keep, textEdit, setText]);
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Text Editor</Text>
-      <Text testID={TestIDS.TextEditor} style={styles.text}>{text || "NO TEXT"}</Text>
-      <TextInput placeholder={"Put your text here."} value={textEdit} onChangeText={setTextEdit} testID={TestIDS.TextEditorInput}/>
-      <Button title={"Submit"} onPress={onSubmit} testID={TestIDS.TextEditorSubmit} disabled={keep}/>
+      <Text testID={TestIDS.TextEditor} style={styles.text}>
+        {text || 'NO TEXT'}
+      </Text>
+      <TextInput placeholder={'Put your text here.'} value={textEdit} onChangeText={setTextEdit} testID={TestIDS.TextEditorInput} />
+      <Button title={'Submit'} onPress={onSubmit} testID={TestIDS.TextEditorSubmit} disabled={keep} />
       <View style={styles.row}>
-        <Text>Keep the same value  </Text>
-        <Switch value={keep} onValueChange={setKeep} testID={TestIDS.TextEditorToggle}/>
+        <Text testID={TestIDS.TextKeepValue}>Keep the same value</Text>
+        <Switch value={keep} onValueChange={setKeep} testID={TestIDS.TextEditorToggle} />
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = {
   container: {
-    alignItems: "center",
-    margin: 50,
+    alignItems: 'center',
+    margin: 50
   },
   row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   text: {
-    marginBottom: 10,
+    marginBottom: 10
   }
-}
+};
